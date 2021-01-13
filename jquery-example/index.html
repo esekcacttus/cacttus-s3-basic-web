@@ -36,7 +36,7 @@
             {
                 id: 1,
                 title: "Create Project",
-                status: 'done',
+                status: 'to_do',
                 description: 'Create new PHP Project!'
             },
              {
@@ -53,11 +53,13 @@
             },
         ]; 
 
+        let allTeamplate = "";
+
         for(let item of response){
             let template = '<select>'+
                     '<option value ="to_do" {{to_do_selected}}> To Do</option>'+
                     '<option value="in_progress" {{in_progress_selected}}>In Progress</option> '+
-                '<option value="done" {{done_selected}}>Done</option> '+
+                    '<option value="done" {{done_selected}}>Done</option> '+
                 '</select >';
 
             template = template.replace("{{"+ item.status+"_selected}}", "selected");
@@ -66,7 +68,9 @@
             template = template.replace("{{to_do_selected}}", "");
             template = template.replace("{{done_selected}}", "");
 
-            $("#example_select").append(template);
+            allTeamplate += template;
         }
+
+        $("#example_select").append(allTeamplate);
     </script>
 </html>

@@ -17,15 +17,14 @@ if (isUserLoggedIn()) {
 <body>
     <center>
         <img width="400" src="https://cacttus.education/wp-content/uploads/2019/07/fb_CACTTUS_logo.png"> </img>
-        <form method="POST" action="/social-network-db/login_logic.php">
-            <label>E-mail:</label><br>
-            <input type="email" name="email" /><br>
+        <form method="POST" action="/social-network-db/reset_password_logic.php">
+            <input type="hidden" name="user_id" value="<?php echo $_GET['user_id'] ?>" /><br>
             <label>Password:</label><br>
-            <input type="password" name="password" /><br><br>
-            <input type="submit" value="Log In" />
+            <input type="password" name="password" /><br>
+            <input type="submit" value="Save new password" />
         </form>
         <br>
-        <a href="/social-network-db/forget_password.php">Forget password?</a>
+        <a href="/social-network-db/index.php">Login</a>
         <a href="/social-network-db/register.php">Create new account!</a>
     </center>
 </body>
