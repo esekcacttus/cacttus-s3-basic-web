@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <title>Multiple Placeholders</title>
+    </head>
+    <body>
+        <input onkeyup="validateInput()" id="email" type="text" placeholder="E-Mail">
+        <button id="validate_button" onclick="validateInput()">Validate</button>
+        <table id="all_items">
+            
+        </table>
+    </body>
+    <script>
+        const users = [
+            {
+                "id" : 1,
+                "name" : "Filane"
+            },
+            {
+                "id": 2,
+                "name": "Filan"
+            },
+             {
+                "id": 3,
+                "name": "Test 123"
+            }
+        ];
+        function showData(){
+            const template = 
+                    "<tr>"+
+                        "<td>{id}</td>"+
+                        "<td>{name} + {id}</td> "+
+                        "<td>Delete user with ID={id}</td> "+
+                    "</tr >";
+
+            for(const user of users){
+                let tempItemTemplate = template;
+                tempItemTemplate = tempItemTemplate.replaceAll("{id}", user.id);
+                tempItemTemplate = tempItemTemplate.replaceAll("{name}", user.name);
+                appendToTable(tempItemTemplate);
+            }
+        }
+
+        function appendToTable(html){
+            document.getElementById("all_items").innerHTML += html;
+        }
+
+        function validateInput() {
+            const element = document.getElementById("email");
+            if(element.value.length == 0){
+                // red color border
+                element.style.borderColor = "red";
+            }else{
+                // green color border
+                element.style.borderColor = "green";
+            }
+        }
+    </script>
+</html>

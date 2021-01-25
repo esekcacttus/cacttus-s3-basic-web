@@ -1,0 +1,6 @@
+.selected {
+    background-color: lightgreen !important;
+}
+.last-selected{
+    background-color: lightgray;
+}
